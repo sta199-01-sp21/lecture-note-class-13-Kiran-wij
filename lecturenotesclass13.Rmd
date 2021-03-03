@@ -395,8 +395,8 @@ Consider the mice radiation results. Suppose we want to compute a 90% confidence
 ```{r practice_2_bootstrap}
 boot_prop2 <- mice %>% 
   filter(treat == 1) %>% 
-  mutate(died = if_else(died == 1, "yes", "no")) %>% 
-  specify(response = died, success = "yes") %>% 
+  mutate(died = if_else(died == 0, "no", "yes")) %>% 
+  specify(response = died, success = "no") %>% 
   generate(reps = 10000, type = "bootstrap") %>% 
   calculate(stat = "prop")
 
@@ -417,7 +417,7 @@ visualise(boot_prop2) +
 
 Give an interpretation of your result.
 There is a 95% chance that the true proportion of mice on the treatment who
-died was between 0.349 and 0.448
+died was between 0.552 and 0.651.
 
 # References
 
