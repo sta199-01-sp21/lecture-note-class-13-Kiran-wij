@@ -410,12 +410,14 @@ ci_mice_died2
 Visualizing our Resuts:
 
 ```{r practice_2_visualize}
-
+visualise(boot_prop2) +
+  shade_ci(ci_mice_died2)
 ```
 
 
 Give an interpretation of your result.
-
+There is a 95% chance that the true proportion of mice on the treatment who
+died was between 0.349 and 0.448
 
 # References
 
